@@ -15,14 +15,10 @@ module Spree
           record = Object
         end
 
-#        unless can?(:admin, record) || can?(:admin_all, record)
-#          authorize! :admin, record
-#        end
-
         authorize_admin!
 
-        puts "**** #{action} for #{record} : #{can?(action, record)}"
         authorize! action, record
+
       end
 
       def authorize_admin!
